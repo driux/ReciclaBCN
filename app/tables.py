@@ -7,7 +7,7 @@ def createTables(db):
     table_con = '''CREATE TABLE Containers (
                     id_con INTEGER PRIMARY KEY,
                     nbhd_con INTEGER,
-                    loc_con CHAR(30),
+                    loc_con TEXT,
                     type_con CHAR(10),
                     condition_con INTEGER,
                     FOREIGN KEY(nbhd_con) REFERENCES Barris(id_nbhd)
@@ -16,7 +16,7 @@ def createTables(db):
     table_fur = '''CREATE TABLE Furniture (
                     id_fur INTEGER PRIMARY KEY,
                     nbhd_fur INTEGER,
-                    loc_fur CHAR(30),
+                    loc_fur TEXT,
                     start_fur DATETIME,
                     end_fur DATETIME,
                     FOREIGN KEY(nbhd_fur) REFERENCES Barris(id_nbhd)
@@ -25,7 +25,7 @@ def createTables(db):
     table_grp = '''CREATE TABLE GreenPoints (
                     id_grp INTEGER PRIMARY KEY,
                     nbhd_grp INTEGER,
-                    loc_grp CHAR(30),
+                    loc_grp TEXT,
                     lat_grp FLOAT,
                     lon_grp FLOAT,
                     FOREIGN KEY(nbhd_grp) REFERENCES Barris(id_nbhd)
