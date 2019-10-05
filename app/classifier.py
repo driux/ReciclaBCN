@@ -12,14 +12,15 @@ def load_cnn():
     data = ImageDataBunch.from_folder(path,test="test",ds_tfms=tfms,bs=16, num_workers=0)
     learn = cnn_learner(data,models.resnet34,metrics=error_rate)
     # Load previous trained model
-    learn = learn.load('trained_model')
-    return learn
+    global MODEL
+    MODEL = learn.load('trained_model')
 
 # Predict from image
-def predict(name, learn):
+def predict(name):
+    load_cnn()
     path2 = Path(os.getcwd())/(name+'.jpg')
     img = open_image(path2)
-    preds = learn.predict(img)
+    preds = MODEL.predict(img)
     clas = str(preds[0])
     if clas == 'cardboard':
         return (clas, float(preds[2][0]))
