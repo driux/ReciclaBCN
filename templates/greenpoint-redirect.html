@@ -7,21 +7,16 @@
     </head>
 
     <body>
-
         <script type="text/javascript">
-        function getPos() {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(redirect);
-          }
-        }
-
         function redirect(pos) {
             let lat = pos.coords.latitude;
             let lon = pos.coords.longitude;
             console.log(`http://127.0.0.1:5000/punto-verde?lat=${lat}&lon=${lon}`);
             window.location.replace(`http://127.0.0.1:5000/punto-verde?lat=${lat}&lon=${lon}`);
         }
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(redirect);
+         }
         </script>
-        <button onclick="getPos()"> X </button>
     </body>
 </html>
