@@ -18,7 +18,7 @@ def load_cnn():
 # Predict from image
 def predict(name):
     load_cnn()
-    path2 = Path(os.getcwd())/(name+'.jpg')
+    path2 = Path(os.path.abspath('static/tmp/'+name))
     img = open_image(path2)
     preds = MODEL.predict(img)
     clas = str(preds[0])
