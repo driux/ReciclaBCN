@@ -60,14 +60,14 @@ def createBarris(db):
                     VALUES
                         (1, 'Ciutat Vella'),
                         (2, 'Eixample'),
-                        (3, 'Sants-Monjuic'),
+                        (3, 'Sants-Monjuïc'),
                         (4, 'Les Corts'),
-                        (5, 'Sarria-Sant Gervsi'),
-                        (6, 'Gracia'),
-                        (7, 'Horta-Guinardo'),
+                        (5, 'Sarrià-Sant Gervasi'),
+                        (6, 'Gràcia'),
+                        (7, 'Horta-Guinardó'),
                         (8, 'Nou Barris'),
                         (9, 'Sant Andreu'),
-                        (10, 'Sant Marti');'''
+                        (10, 'Sant Martí');'''
 
     try:
         insertTask(db, insert_nbhd)
