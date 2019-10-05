@@ -14,9 +14,13 @@
             console.log(`http://127.0.0.1:5000/punto-verde?lat=${lat}&lon=${lon}`);
             window.location.replace(`http://127.0.0.1:5000/punto-verde?lat=${lat}&lon=${lon}`);
         }
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(redirect);
-         }
+
+        setInterval( () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(redirect);
+             }
+        }, 100)
+
         </script>
     </body>
 </html>
