@@ -5,10 +5,6 @@ import os
 import pandas as pd
 import numpy as np
 
-
-def get_result(img_src):
-    # Devuelve el string que muestro por pantalla
-
 def load_cnn():
     # Initialize some learner
     path = Path(os.getcwd())/"data"
@@ -38,3 +34,18 @@ def predict(name):
         return (clas, float(preds[2][4]))
     elif clas == 'trash':
         return (clas, float(preds[2][5]))
+
+
+def get_result(img_src):
+    # Devuelve el string que muestro por pantalla
+    p = predict(img_src)
+    if p[1] < 0.7:
+        return 'negro'
+    elif p[0] == 'cardboard':
+        return 'azul'
+    elif p[0] == 'glass':
+        return 'verde'
+    elif p[0] == 'metal' or p[0] == 'plastic':
+        return 'amarillo'
+    elif p[0] == 'trash':
+        return 'negro'
