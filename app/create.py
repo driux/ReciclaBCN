@@ -87,9 +87,9 @@ def createBarris(db):
                     VALUES
                         (1, 'Ciutat Vella'),
                         (2, 'Eixample'),
-                        (3, 'Sants-Monjuïc'),
+                        (3, 'Sants-Montjuïc'),
                         (4, 'Les Corts'),
-                        (5, 'Sarrià-Sant Gervsi'),
+                        (5, 'Sarrià-Sant Gervasi'),
                         (6, 'Gràcia'),
                         (7, 'Horta-Guinardó'),
                         (8, 'Nou Barris'),
