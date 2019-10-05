@@ -1,14 +1,7 @@
 import os
+import app.classifier
 from app import app
 from flask import render_template, request, redirect
-import classifier
-
-'''
-@app.route('/')
-@app.route('/index')
-def index():
-    return "Hello, World!"
-'''
 
 @app.route('/')
 def template_test():
