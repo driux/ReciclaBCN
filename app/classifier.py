@@ -5,6 +5,10 @@ import os
 import pandas as pd
 import numpy as np
 
+
+def get_result(img_src):
+    # Devuelve el string que muestro por pantalla
+
 def load_cnn():
     # Initialize some learner
     path = Path(os.getcwd())/"data"

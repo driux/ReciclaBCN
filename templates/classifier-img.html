@@ -8,39 +8,10 @@
     </head>
 
     <body>
-        <input id="input-img" type="file" accept="image/*;capture=camera">
-        <button onclick="load_img()"> load </button>
-        <button onclick="debug()"> debug </button>
-        <script type="text/javascript">
-        function getBase64Image(img) {
-            var canvas = document.createElement("canvas");
-            canvas.width = img.width;
-            canvas.height = img.height;
+        <form action="/a-donde-va" method="post" enctype="multipart/form-data">
+            <input name="image" id="input-img" type="file" accept="image/*;capture=camera">
+            <input type="submit" value="LOAD">
+        </form>
 
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(img, 0, 0);
-
-            var dataURL = canvas.toDataURL("image/png");
-
-            return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-        }
-
-        function load_img() {
-            let img = document.getElementById("input-img");
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                document.getElementById('bannerImg').src =  e.target.result;
-            }
-            bannerImage = document.getElementById('bannerImg');
-            imgData = getBase64Image(bannerImage);
-            localStorage.setItem("imgData", imgData);
-            console.log("Loaded :D")
-        }
-
-        function debug() {
-            console.log(localStorage.getItem("imgData"));
-        }
-
-        </script>
     </body>
 </html>
