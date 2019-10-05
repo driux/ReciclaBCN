@@ -5,8 +5,6 @@ import os
 import pandas as pd
 import numpy as np
 
-MODEL = None
-
 def load_cnn():
     # Initialize some learner
     path = Path(os.getcwd())/"data"
@@ -14,10 +12,12 @@ def load_cnn():
     data = ImageDataBunch.from_folder(path,test="test",ds_tfms=tfms,bs=16, num_workers=0)
     learn = cnn_learner(data,models.resnet34,metrics=error_rate)
     # Load previous trained model
+    global MODEL
     MODEL = learn.load('trained_model')
 
 # Predict from image
 def predict(name):
+    load_cnn()
     path2 = Path(os.getcwd())/(name+'.jpg')
     img = open_image(path2)
     preds = MODEL.predict(img)
