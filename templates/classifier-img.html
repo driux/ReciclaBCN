@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title> ReciclaBCN </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <img id="bannerImg" styles="visible:invisible" />
+    </head>
+
+    <body>
+        <input id="input-img" type="file" accept="image/*;capture=camera">
+        <button onclick="load_img()"> load </button>
+        <button onclick="debug()"> debug </button>
+        <script type="text/javascript">
+        function getBase64Image(img) {
+            var canvas = document.createElement("canvas");
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0);
+
+            var dataURL = canvas.toDataURL("image/png");
+
+            return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+        }
+
+        function load_img() {
+            let img = document.getElementById("input-img");
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('bannerImg').src =  e.target.result;
+            }
+            bannerImage = document.getElementById('bannerImg');
+            imgData = getBase64Image(bannerImage);
+            localStorage.setItem("imgData", imgData);
+            console.log("Loaded :D")
+        }
+
+        function debug() {
+            console.log(localStorage.getItem("imgData"));
+        }
+
+        </script>
+    </body>
+</html>
