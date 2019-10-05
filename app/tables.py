@@ -1,7 +1,7 @@
 import os
 import sqlite3
 from sqlite3 import Error
-from create import createDatabase, createTask, insertTask
+from create import createDatabase, createTask, insertTask, selectTask
 
 def createTables(db):
     table_con = '''CREATE TABLE Containers (
@@ -9,7 +9,7 @@ def createTables(db):
                     nbhd_con INTEGER,
                     loc_con CHAR(30),
                     type_con CHAR(10),
-                    condition_con CHAR(30),
+                    condition_con INTEGER,
                     FOREIGN KEY(nbhd_con) REFERENCES Barris(id_nbhd)
                 );'''
 
