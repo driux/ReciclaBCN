@@ -7,13 +7,8 @@ import numpy as np
 
 def load_cnn():
     # Initialize some learner
-    path = Path(os.getcwd())/"data"
-    tfms = get_transforms(do_flip=True,flip_vert=True)
-    data = ImageDataBunch.from_folder(path,test="test",ds_tfms=tfms,bs=16, num_workers=0)
-    learn = cnn_learner(data,models.resnet34,metrics=error_rate)
-    # Load previous trained model
-    global MODEL
-    MODEL = learn.load('trained_model')
+    global MODEL 
+    MODEL = load_learner(Path(os.getcwd())/'app', 'trained_model.pkl')
 
 # Predict from image
 def predict(name):
