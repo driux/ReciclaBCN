@@ -43,9 +43,8 @@ def template_classifier():
 
 @app.route('/report', methods = ['GET', 'POST'])
 def template_report():
-    if request.method == "POST":
-        if request.files:
-            action = request.files["action"]
+    if request.files:
+        action = request.files["action"]
         return redirect("reporte?action=" + action)
     success = request.args.get('success')
     print(success)
@@ -56,8 +55,8 @@ def template_report():
 def template_reporte():
     action = request.args.get('action')
     # Update points
-    if action == 1:
+    if action == "1":
         appupdate.update_user_score(1,3)
-    elif action == 2:
-        
-    return render_template('report.html?success=True')
+    elif action == "2":
+        appupdate.update_container(1,1)
+    return render_template('report.html')
