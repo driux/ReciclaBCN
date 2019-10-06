@@ -33,6 +33,7 @@ def template_classifier_img():
 def template_classifier():
     src = request.args.get('src')
     res = appclassifier.get_result(src)
+    os.remove(os.path.abspath('static/tmp/'+src))
     if res == "unknown" or res == "negro":
         return render_template('classifier_mal.html')
     else:
