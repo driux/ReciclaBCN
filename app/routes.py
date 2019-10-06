@@ -13,11 +13,10 @@ def template_test():
 def template_greenpoint():
     lat = request.args.get('lat')
     lon = request.args.get('lon')
-    src = nearest.getNearest(float(lat), float(lon))
-    print(src)
     if lat is None or lon is None:
         return render_template('greenpoint-redirect.html');
     else:
+        src = nearest.getNearest(float(lat), float(lon))
         return render_template('greenpoint.html', embed_url=src);
 
 
