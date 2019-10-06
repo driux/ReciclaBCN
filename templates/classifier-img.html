@@ -13,15 +13,16 @@
 
         <div style="width: 100%" id="ff-div" class="invisible">
             <img src="/static/Img/spin.gif" />
-            <p>{{fun_fact}}</p>
+            <p id="ff-container">{{fun_fact}}</p>
         </div>
 
-
         <script type="text/javascript">
+
         function changeVisible() {
             document.getElementsByClassName('invisible')[0].classList.remove("invisible");
             document.getElementsByTagName('form')[0].classList.add("invisible");
         }
+
         </script>
     </body>
 

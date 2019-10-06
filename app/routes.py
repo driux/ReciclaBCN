@@ -2,6 +2,7 @@ import os
 import app.classifier as appclassifier
 import app.nearest as nearest
 import app.randomfacts as randomfacts
+import app.update as appupdate
 from app import app
 from flask import render_template, request, redirect
 
@@ -29,7 +30,7 @@ def template_classifier_img():
             image.save(os.path.join(os.path.abspath("static/tmp/"), image.filename))
         return redirect("/va-aqui?src=" + image.filename)
     ff = randomfacts.randomfact()
-    return render_template('classifier-img.html', fun_fact=ff);
+    return render_template('classifier-img.html', fun_fact=ff)
         #return render_template('classifier.html', page_text="Hola");
 
 @app.route('/va-aqui')

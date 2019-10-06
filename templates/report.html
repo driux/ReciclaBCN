@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es-ES">
-    {% import 'head.html' %}
+    {% include 'head.html' %}
 
     <body>
-        {% import 'header.html' %}
+        {% include 'header.html' %}
 
         <main>
 
@@ -14,11 +14,18 @@
 
             <br /><br />
 
+
+              <button class="btn" onclick="window.location.replace('/report?action=true')"> El contenedor está lleno </button><br /><br />
+              <button class="btn" onclick="window.location.replace('/report?action=true')"> El contenedor está roto </button>
+
+
+            <!--<button onclick="window.location.replace('{{embed_url}}')"> El contenedor está lleno </button>
+            <button onclick="window.location.replace('{{embed_url}}')"> El contenedor está roto </button>
             <a> El contenedor está lleno </a><br /><br />
-            <a> El contenedor está roto </a>
+            <a> El contenedor está roto </a>-->
         </main>
 
 
-        {% import 'footer.html' %}
+        {% include 'footer.html' %}
     </body>
 </html>

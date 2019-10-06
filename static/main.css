@@ -223,3 +223,10 @@ a {
     margin-top: 50px;
     text-align: center;
 }
+
+.btn {
+    border: none;
+    font-size: 60px;
+    background-color: white;
+    text-decoration: underline;
+}
