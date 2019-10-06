@@ -1,5 +1,7 @@
 import os
 import app.classifier as appclassifier
+import app.nearest as nearest
+import app.update as appupdate
 from app import app
 from flask import render_template, request, redirect
 
@@ -12,11 +14,11 @@ def template_test():
 def template_greenpoint():
     lat = request.args.get('lat')
     lon = request.args.get('lon')
-    print(lat, lon)
     if lat is None or lon is None:
         return render_template('greenpoint-redirect.html');
     else:
-        return render_template('greenpoint.html', page_text="Hola");
+        src = nearest.getNearest(float(lat), float(lon))
+        return render_template('greenpoint.html', embed_url=src);
 
 
 @app.route('/a-donde-va', methods = ['GET', 'POST'])
@@ -33,15 +35,29 @@ def template_classifier_img():
 def template_classifier():
     src = request.args.get('src')
     res = appclassifier.get_result(src)
+    os.remove(os.path.abspath('static/tmp/'+src))
     if res == "unknown" or res == "negro":
         return render_template('classifier_mal.html')
     else:
         return render_template('classifier.html', contenedor=res);
 
-@app.route('/reportar')
+@app.route('/report', methods = ['GET', 'POST'])
 def template_report():
+    if request.method == "POST":
+        if request.files:
+            action = request.files["action"]
+        return redirect("reporte?action=" + action)
     success = request.args.get('success')
+    print(success)
     if success is None:
         return render_template('report.html');
-    else:
-        return render_template('report-success.html', page_text="Hola");
+
+@app.route('/reporte')
+def template_reporte():
+    action = request.args.get('action')
+    # Update points
+    if action == 1:
+        appupdate.update_user_score(1,3)
+    elif action == 2:
+        
+    return render_template('report.html?success=True')
