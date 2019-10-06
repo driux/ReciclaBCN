@@ -36,7 +36,7 @@ def get_result(img_src):
     p = predict(img_src)
     if p[1] < 0.5:
         return 'negro'
-    elif p[0] == 'cardboard':
+    elif p[0] == 'cardboard' or p[0] == 'paper':
         return 'azul'
     elif p[0] == 'glass':
         return 'verde'
