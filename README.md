@@ -13,7 +13,7 @@ Es una app que cuenta con diferentes partes:
 
 ## Cómo lo construimos
 Nos dividimos el trabajo en 3 partes:
-1. **Diseño de interfaz:** Se han escogido colores para representar al medio ambiente. Para los contenedores se buscaron iconos minimalistas para hacer más intuitiva la aplicación. También se ha tenido en cuenta que será ejecutada en móvil.
+1. **Diseño de interfaz:** Se han escogido colores para representar al medio ambiente. Para los contenedores se buscaron iconos minimalistas para hacer más intuitiva la aplicación, de lo cual tenemos que dar crédito a Freepik de Flaticon. También se ha tenido en cuenta que será ejecutada en móvil.
 2. **Detector de imágenes para la basura:** Utilizando la librería fastai de python se ha entrenado una CNN de 34 capas con unas 2000 imágenes de una base de datos online con imágenes de basura clasificada.
 3. **Base de datos:** Todo ha sido creado usando python para ejecutar los script de SQL. Primero crea las tablas y una vez creadas se han ido rellenando con información online en el caso de los puntos verdes y de forma manual las que serían usadas como ejemplo.
 
