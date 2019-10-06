@@ -28,9 +28,3 @@ A manejar correctamente un repositorio de github entre varias personas. También
 
 ## ¿Qué será lo siguiente para BCleaN?
 Crear un sistema de usuarios real que respete la privacidad de la gente. Añadir un apartado que avise de cuándo pasan a recoger un mueble. Mejorar el modelo de detección de imágenes para detectar orgánico además de plástico, latas, papel y cartón. 
-
-## Programado con
-`python` `javascript` `sql` `html` `flask`
-
-## Try it out
-[Github repo](https://github.com/raulhigueras/ReciclaBCN)
