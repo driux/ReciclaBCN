@@ -34,8 +34,8 @@ def predict(name):
 def get_result(img_src):
     # Devuelve el string que muestro por pantalla
     p = predict(img_src)
-    if p[1] < 0.5:
-        return 'negro'
+    if p[1] < 0.7:
+        return 'unknown'
     elif p[0] == 'cardboard' or p[0] == 'paper':
         return 'azul'
     elif p[0] == 'glass':
