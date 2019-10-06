@@ -13,12 +13,12 @@ BARRIS = {
 'Sant Martí' : 10 }
 
 f = open("file_create_green_points.py", "w")
-f.write(" '''INSERT INTO GreenPoints \n (id_grp, nbhd_grp, loc_grp, lat_grp, lon_grp) \n VALUES \n ")
+f.write("'''INSERT INTO GreenPoints \n (id_grp, nbhd_grp, loc_grp, lat_grp, lon_grp) \n VALUES \n ")
 f.close()
-with open("../green_points.json", "r") as read_file:
+with open("grp.json", "r") as read_file:
     data = json.load(read_file)
     f = open("file_create_green_points.py", "a")
-    for i in range (0, 126):
-        f.write("( " + str(i) + ", " + str(BARRIS.get(data['district'][str(i)])) + ", " + "'" + data['address'][str(i)] + "'" + ", " + str(data['gmapx'][str(i)]) + ", " + str(data['gmapy'][str(i)]) + ") \n")
-    f.write("'''")
+    for i in range (0, 125):
+        f.write("(" + str(i) + ", " + str(BARRIS.get(data['district'][str(i)])) + ", " + '"' + data['address'][str(i)] + '"' + ", " + str(data['gmapx'][str(i)]) + ", " + str(data['gmapy'][str(i)]) + "), \n")
+    f.write("( " + '125' + ", " + str(BARRIS.get(data['district'][125])) + ", " + "'" + data['address'][125] + "'" + ", " + str(data['gmapx'][125]) + ", " + str(data['gmapy'][125]) + ");'''")
     f.close()

@@ -1,7 +1,7 @@
 import os
 import sqlite3
 from sqlite3 import Error
-from create import createDatabase, createTask, insertTask, selectTask
+from create import createTask, insertTask
 
 def createTables(db):
     table_con = '''CREATE TABLE Containers (
@@ -39,9 +39,9 @@ def createTables(db):
                 );'''
 
     table_nbhd = '''CREATE TABLE Barris (
-                        id_nbhd INTEGER PRIMARY KEY,
-                        name_nbhd CHAR(20)
-                    );'''
+                    id_nbhd INTEGER PRIMARY KEY,
+                    name_nbhd CHAR(20)
+                );'''
 
     try:
         createTask(db, table_fur)
@@ -49,12 +49,11 @@ def createTables(db):
         createTask(db, table_grp)
         createTask(db, table_usr)
         createTask(db, table_nbhd)
-        print('--- Tables created')
     except Error as e:
         print(e)
 
 
-def createBarris(db):
+def fillBarris(db):
     insert_nbhd = '''INSERT INTO Barris
                         (id_nbhd, name_nbhd)
                     VALUES
@@ -72,12 +71,11 @@ def createBarris(db):
     try:
         insertTask(db, insert_nbhd)
         db.commit()
-        print('--- Table Barris created')
     except Error as e:
         print(e)
 
 
-def createUsers(db):
+def fillUsers(db):
     insert_usr = '''INSERT INTO Users
                         (id_usr, psw_usr, name_usr, pts_usr)
                     VALUES
@@ -90,21 +88,16 @@ def createUsers(db):
     try:
         insertTask(db, insert_usr)
         db.commit()
-        print('--- Table Users created')
     except Error as e:
         print(e)
 
 
-if __name__ == '__main__':
-    database = 'data.db'
+def fillGreenPoints(db):
+    f = open('grp.json', 'r')
+    insert_grp = str(f.read())
 
-    db = createDatabase(os.path.abspath(database))
-
-    if db is not None:
-        print('--- CREA')
-        createTables(db)
-        createBarris(db)
-        createUsers(db)
-
-    else:
-        print('No such database :(')
+    try:
+        insertTask(db, insert_grp)
+        db.commit()
+    except Error as e:
+        print(e)
