@@ -1,14 +1,7 @@
 import os
+import app.classifier as appclassifier
 from app import app
 from flask import render_template, request, redirect
-import classifier
-
-'''
-@app.route('/')
-@app.route('/index')
-def index():
-    return "Hello, World!"
-'''
 
 @app.route('/')
 def template_test():
@@ -39,7 +32,7 @@ def template_classifier_img():
 @app.route('/va-aqui')
 def template_classifier():
     src = request.args.get('src')
-    return render_template('classifier.html', page_text=classifier.get_result(src));
+    return render_template('classifier.html', page_text=appclassifier.get_result(src));
 
 @app.route('/reportar')
 def template_report():

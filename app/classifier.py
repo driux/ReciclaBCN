@@ -7,18 +7,13 @@ import numpy as np
 
 def load_cnn():
     # Initialize some learner
-    path = Path(os.getcwd())/"data"
-    tfms = get_transforms(do_flip=True,flip_vert=True)
-    data = ImageDataBunch.from_folder(path,test="test",ds_tfms=tfms,bs=16, num_workers=0)
-    learn = cnn_learner(data,models.resnet34,metrics=error_rate)
-    # Load previous trained model
-    global MODEL
-    MODEL = learn.load('trained_model')
+    global MODEL 
+    MODEL = load_learner(Path(os.getcwd())/'app', 'trained_model.pkl')
 
 # Predict from image
 def predict(name):
     load_cnn()
-    path2 = Path(os.getcwd())/(name+'.jpg')
+    path2 = Path(os.path.abspath('static/tmp/'+name))
     img = open_image(path2)
     preds = MODEL.predict(img)
     clas = str(preds[0])
@@ -39,7 +34,7 @@ def predict(name):
 def get_result(img_src):
     # Devuelve el string que muestro por pantalla
     p = predict(img_src)
-    if p[1] < 0.7:
+    if p[1] < 0.5:
         return 'negro'
     elif p[0] == 'cardboard':
         return 'azul'
