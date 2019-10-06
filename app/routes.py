@@ -32,7 +32,11 @@ def template_classifier_img():
 @app.route('/va-aqui')
 def template_classifier():
     src = request.args.get('src')
-    return render_template('classifier.html', page_text=appclassifier.get_result(src));
+    res = appclassifier.get_result(src)
+    if res == "unknown" or res == "negro":
+        return render_template('classifier_mal.html')
+    else:
+        return render_template('classifier.html', contenedor=res);
 
 @app.route('/reportar')
 def template_report():

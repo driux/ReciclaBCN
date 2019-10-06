@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="es-ES">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title> ReciclaBCN </title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    </head>
+    {% include 'head.html' %}
 
     <body>
-        <!---<h1> Hola, {{name}} </h1>
-        <p> El server está funcionando yay :D </p>
+        {% include 'header.html' %}
 
-        <ul>
-            <li> <a href="/punto-verde"> Busca el punto verde más cercano</a> </li>
-            <li> <a href="/identificador"> ¿Dónde tiro mi basura? </a> </li>
-            <li> <a href="/muebles"> ¿Cuándo/dónde tiro mis muebles? </a> </li>
-        </ul>-->
+        <aside>
+            <!--<span id="random-title"> ¿Sabías que...? </span> <br /><br />-->
+            <span id="random-fact"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempor eros ac lectus dictum accumsan eu aliquet nisl. </span>
+        </aside>
 
+        <main>
 
-        <header>
-            <span> ReciclaBCN </span>
-        </header>
-
-        <main class="container-fluid">
-            <section class="row">
-                PUNTO VERDE
-            </section>
-            <secrion class="row">
-                BASURA CERCANA
-            </section>
-            <section class="row">
-                MUEBLES
-            </section>
+            <div class="col1">
+                <a href="/punto-verde"> <section>
+                    <img src="{{ url_for('static', filename='Img/mapas-y-banderas.png') }}" />
+                </section></a>
+            </div>
+            <div class="col2">
+                <a href="/report"><section>
+                    <img  src="{{ url_for('static', filename='Img/bandera copia.png') }}" />
+                </section></a>
+            </div>
+            <div class="colu">
+                <a href="/a-donde-va"><section>
+                    <img src="{{ url_for('static', filename='Img/camara-de-fotos copia.png') }}" />
+                </section></a>
+            </div>
         </main>
+
+
+        {% include 'footer.html' %}
     </body>
 </html>

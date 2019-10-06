@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="es-ES">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title> ReciclaBCN </title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    </head>
+    {% include 'head.html' %}
 
     <body>
-        <p> El residuo va al contenedor {{page_text}} </p>
-    </body>
+
+    {% include 'header.html' %}
+
+        <main>
+
+            <br />
+            <h1> Calculado </h1>
+            <br />
+            <h2> El residuo que has enviado debe ser reciclado en el contenedor: {{contenedor}} </h2>
+
+            <br /><br />
+
+            <img class="container-img" src="/static/Img/{{contenedor}}.png" />
+
+        </main>
+
+    {% include 'footer.html' %}
+
+</body>
 </html>

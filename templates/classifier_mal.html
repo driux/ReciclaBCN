@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+    {% include 'head.html' %}
+
+    <body>
+        {% include 'header.html' %}
+
+        <main>
+
+            <br />
+            <h1> Lo sentimos </h1>
+            <br />
+            <h2> Nuestro algoritmo no ha sido capaz de decidir con decision qué hacer con el objeto de la foto </h2>
+
+            <span style="font-size: 100px"> 😵 </span>
+
+            <hr />
+            <br />
+
+            <div class="col1">
+                <p> Si tu objeto era de origen orgánico, recuerda que va al contenedor MARRON </p> <br />
+                <img src="static/Img/organico_naranja.png" class="small-img" />
+            </div>
+            <div class="col2">
+                <p> Si tu objeto no va a ninguno de los contenedores convencionales, visita un PUNTO VERDE </p>
+                <img src="static/Img/trash-truck.png" class="small-img" /><br />
+                <a> ¡Encuentra el tuyo! </a>
+            </div>
+
+        </main>
+
+
+        {% include 'footer.html' %}
+    </body>
+</html>
