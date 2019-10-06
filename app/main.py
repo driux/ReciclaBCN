@@ -1,7 +1,7 @@
 import os
 import sqlite3
-from create import createDatabase
-from tables import createTables, fillBarris, fillUsers, fillGreenPoints
+from app.create import createDatabase
+from app.tables import createTables, fillBarris, fillUsers, fillGreenPoints
 
 if __name__ == '__main__':
     database = 'data.db'

@@ -1,7 +1,7 @@
 import os
 import sqlite3
 from sqlite3 import Error
-from create import createDatabase
+from app.create import createDatabase
 from haversine import haversine
 from math import inf
 
@@ -28,18 +28,18 @@ def selectNearest(db, my_lat, my_lon):
                 nearest = dist
                 nearest_coords = table_coords
 
-        #return 'https://www.google.com/maps/embed/place/%f,%f' % (nearest_coords[0], nearest_coords[1])
-        return 'https://www.google.com/maps/embed/v1/place?q=%f,%f&amp' % (nearest_coords[0], nearest_coords[1])
+        return 'https://www.google.com/maps/place/%f,%f' % (nearest_coords[0], nearest_coords[1])
+        #return 'https://www.google.com/maps/embed/v1/place?q=%f,%f&amp' % (nearest_coords[0], nearest_coords[1])
 
     except Error as e:
-        print(e)
+        print("Error " + str(e))
 
 def getNearest(lat, lon):
-    return selectNearest(db, lat, lon)
+    return selectNearest(sqlite3.connect('app/data.db'), lat, lon)
 
 
 if __name__ == '__main__':
-    database = 'data.db'
+    database = 'app/data.db'
 
     db = sqlite3.connect(database)
 

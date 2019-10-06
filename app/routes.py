@@ -1,5 +1,6 @@
 import os
 import app.classifier as appclassifier
+import app.nearest as nearest
 from app import app
 from flask import render_template, request, redirect
 
@@ -12,11 +13,12 @@ def template_test():
 def template_greenpoint():
     lat = request.args.get('lat')
     lon = request.args.get('lon')
-    print(lat, lon)
+    src = nearest.getNearest(float(lat), float(lon))
+    print(src)
     if lat is None or lon is None:
         return render_template('greenpoint-redirect.html');
     else:
-        return render_template('greenpoint.html', page_text="Hola");
+        return render_template('greenpoint.html', embed_url=src);
 
 
 @app.route('/a-donde-va', methods = ['GET', 'POST'])
@@ -43,5 +45,3 @@ def template_report():
     success = request.args.get('success')
     if success is None:
         return render_template('report.html');
-    else:
-        return render_template('report-success.html', page_text="Hola");
