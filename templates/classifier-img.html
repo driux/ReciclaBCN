@@ -8,8 +8,21 @@
         <form action="/a-donde-va" method="post" enctype="multipart/form-data">
             <input id="image" name="image" type="file" accept="image/*;capture=camera" /> <br />
             <div class="prelabel"><label for="image"></label></div> <br /><br /><br />
-            <input type="submit" value="Procesar" style="margin: 1px auto"/>
+            <input type="submit" value="Procesar" style="margin: 1px auto" onclick="changeVisible()"/>
         </form>
+
+        <div style="width: 100%" id="ff-div" class="invisible">
+            <img src="/static/Img/spin.gif" />
+            <p>{{fun_fact}}</p>
+        </div>
+
+
+        <script type="text/javascript">
+        function changeVisible() {
+            document.getElementsByClassName('invisible')[0].classList.remove("invisible");
+            document.getElementsByTagName('form')[0].classList.add("invisible");
+        }
+        </script>
     </body>
 
     {% include 'footer.html' %}

@@ -7,7 +7,6 @@
     </head>
 
     <body>
-        <button onclick="permission()"> + </button>
         <script type="text/javascript">
         function redirect(pos) {
             let lat = pos.coords.latitude;
@@ -17,9 +16,12 @@
         }
 
         function permission() {
-            navigator.geolocation.getCurrentPosition(redirect);
+            //navigator.geolocation.getCurrentPosition(redirect);
+            window.location.replace(`/punto-verde?lat=41.616450&lon=0.623570`)
         }
-        
+
+        setInterval(() =>{ permission() }, 100);
+
         </script>
     </body>
 </html>

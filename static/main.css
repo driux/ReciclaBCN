@@ -144,6 +144,8 @@ label:hover {
 }
 
 input[type="submit"] {
+    display:block;
+    margin:1px auto;
     border: none;
     font-size: 60px;
     background-color: white;
@@ -210,4 +212,14 @@ p, a {
 a {
     color: black;
     text-decoration: none;
+}
+
+.invisible {
+    display: none;
+}
+
+#ff-div {
+    padding: 20px;
+    margin-top: 50px;
+    text-align: center;
 }

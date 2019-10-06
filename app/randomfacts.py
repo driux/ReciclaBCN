@@ -1,4 +1,7 @@
-def randomfacts ():
-    with open("curiosidades.txt") as f:
-    content = f.readlines()
-    return (content)
+import random
+
+def randomfact():
+    with open("app/curiosidades.txt") as f:
+        content = f.readlines()
+        x = random.randint(0, len(content))
+        return content[x]
