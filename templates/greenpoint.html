@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="es-ES">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title> ReciclaBCN </title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    </head>
+    {% include 'head.html' %}
 
     <body>
-        <p> El punto verde más cercano es {{page_text}} </p>
+        {% include 'header.html' %}
+        <main>
+            <br />
+            <h1> Aquí está tu punto verde más cercano: </h1>
+            <br />
+
+            <button onclick="window.location.replace('{{embed_url}}')"> AQUÍ </button>
+        </main>
+        {% include 'footer.html' %}
     </body>
 </html>
